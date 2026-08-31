@@ -1,0 +1,4302 @@
+```html
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Paint 3D Studio รับงานเพ้นท์โมเดล 3D งาน Figure งาน Character งาน Diorama และงาน Custom">
+
+    <title>Paint 3D Studio | รับงาน Paint 3D</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+
+        font-family: "Kanit", sans-serif;
+
+        background: #f7f7f8;
+
+        color: #222;
+
+        line-height: 1.7;
+
+        transition:
+            background 0.3s ease,
+            color 0.3s ease;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font-family: inherit;
+    }
+
+
+    /* =====================================================
+       VARIABLES
+    ====================================================== */
+
+    :root {
+
+        --primary: #ff5a1f;
+
+        --primary-dark: #d9410b;
+
+        --secondary: #ff9f43;
+
+        --dark: #111827;
+
+        --dark-2: #1f2937;
+
+        --gray: #6b7280;
+
+        --light: #f9fafb;
+
+        --white: #ffffff;
+
+        --border: #e5e7eb;
+
+        --success: #16a34a;
+
+        --shadow:
+            0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* =====================================================
+       CONTAINER
+    ====================================================== */
+
+    .container {
+
+        width: min(1180px, 92%);
+
+        margin: auto;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    header {
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 5000;
+
+        background:
+            rgba(17, 24, 39, 0.96);
+
+        backdrop-filter:
+            blur(15px);
+
+        box-shadow:
+            0 5px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar {
+
+        min-height: 72px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 20px;
+    }
+
+    .logo {
+
+        color: white;
+
+        font-size: 24px;
+
+        font-weight: 700;
+
+        white-space: nowrap;
+    }
+
+    .logo span {
+
+        color: var(--primary);
+    }
+
+    .nav-menu {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 24px;
+
+        list-style: none;
+    }
+
+    .nav-menu a {
+
+        color: #e5e7eb;
+
+        font-size: 15px;
+
+        transition: 0.25s;
+    }
+
+    .nav-menu a:hover {
+
+        color: var(--secondary);
+    }
+
+    .header-actions {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .theme-btn,
+    .menu-btn {
+
+        width: 42px;
+
+        height: 42px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        cursor: pointer;
+
+        color: white;
+
+        background: #374151;
+
+        font-size: 18px;
+    }
+
+    .menu-btn {
+
+        display: none;
+
+        border-radius: 8px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+
+        min-height: 700px;
+
+        color: white;
+
+        display: flex;
+
+        align-items: center;
+
+        background:
+
+            radial-gradient(
+                circle at 80% 20%,
+                rgba(255, 159, 67, 0.3),
+                transparent 30%
+            ),
+
+            radial-gradient(
+                circle at 20% 80%,
+                rgba(255, 90, 31, 0.2),
+                transparent 30%
+            ),
+
+            linear-gradient(
+                135deg,
+                #0b0f19,
+                #111827,
+                #1f2937
+            );
+    }
+
+    .hero-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            1.15fr 0.85fr;
+
+        align-items: center;
+
+        gap: 70px;
+
+        padding: 90px 0;
+    }
+
+    .hero-badge {
+
+        display: inline-block;
+
+        padding: 7px 15px;
+
+        border:
+            1px solid rgba(255,255,255,0.2);
+
+        background:
+            rgba(255,255,255,0.08);
+
+        border-radius: 30px;
+
+        margin-bottom: 20px;
+
+        color: #fed7aa;
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(42px, 6vw, 72px);
+
+        line-height: 1.15;
+
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+
+        color: var(--primary);
+    }
+
+    .hero p {
+
+        color: #d1d5db;
+
+        font-size: 18px;
+
+        max-width: 680px;
+
+        margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 14px;
+    }
+
+    .btn {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 13px 22px;
+
+        border-radius: 9px;
+
+        border: none;
+
+        cursor: pointer;
+
+        font-weight: 600;
+
+        transition: 0.25s;
+    }
+
+    .btn-primary {
+
+        background: var(--primary);
+
+        color: white;
+    }
+
+    .btn-primary:hover {
+
+        background: var(--primary-dark);
+
+        transform:
+            translateY(-2px);
+    }
+
+    .btn-outline {
+
+        border:
+            1px solid #6b7280;
+
+        color: white;
+
+        background: transparent;
+    }
+
+    .btn-outline:hover {
+
+        background: white;
+
+        color: var(--dark);
+    }
+
+    .hero-preview {
+
+        position: relative;
+
+        min-height: 440px;
+
+        border-radius: 30px;
+
+        overflow: hidden;
+
+        border:
+            1px solid rgba(255,255,255,0.15);
+
+        background:
+            linear-gradient(
+                145deg,
+                #374151,
+                #111827
+            );
+
+        box-shadow:
+            0 30px 70px rgba(0,0,0,0.4);
+    }
+
+    .preview-model {
+
+        position: absolute;
+
+        inset: 45px;
+
+        border-radius: 20px;
+
+        background:
+
+            radial-gradient(
+                circle at 50% 35%,
+                #ff9f43,
+                #ff5a1f 25%,
+                #111827 70%
+            );
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 120px;
+
+        box-shadow:
+            inset 0 0 60px rgba(0,0,0,.4);
+    }
+
+    .preview-tag {
+
+        position: absolute;
+
+        left: 25px;
+
+        bottom: 25px;
+
+        padding: 10px 16px;
+
+        border-radius: 10px;
+
+        background:
+            rgba(0,0,0,.65);
+
+        color: white;
+    }
+
+
+    /* =====================================================
+       STATS
+    ====================================================== */
+
+    .stats {
+
+        margin-top: -45px;
+
+        position: relative;
+
+        z-index: 10;
+    }
+
+    .stats-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        background: white;
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        box-shadow: var(--shadow);
+    }
+
+    .stat {
+
+        padding: 28px;
+
+        text-align: center;
+
+        border-right:
+            1px solid var(--border);
+    }
+
+    .stat:last-child {
+
+        border-right: none;
+    }
+
+    .stat strong {
+
+        display: block;
+
+        color: var(--primary);
+
+        font-size: 34px;
+    }
+
+    .stat span {
+
+        color: var(--gray);
+    }
+
+
+    /* =====================================================
+       SECTION
+    ====================================================== */
+
+    section {
+
+        padding: 90px 0;
+    }
+
+    .section-heading {
+
+        text-align: center;
+
+        margin-bottom: 55px;
+    }
+
+    .section-heading .label {
+
+        color: var(--primary);
+
+        font-weight: 600;
+
+        margin-bottom: 5px;
+    }
+
+    .section-heading h2 {
+
+        font-size:
+            clamp(30px, 4vw, 44px);
+
+        color: var(--dark);
+
+        margin-bottom: 10px;
+    }
+
+    .section-heading p {
+
+        color: var(--gray);
+
+        max-width: 700px;
+
+        margin: auto;
+    }
+
+
+    /* =====================================================
+       SERVICES
+    ====================================================== */
+
+    .services {
+
+        background: white;
+    }
+
+    .service-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 25px;
+    }
+
+    .service-card {
+
+        padding: 30px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 18px;
+
+        background: white;
+
+        transition: 0.3s;
+    }
+
+    .service-card:hover {
+
+        transform:
+            translateY(-7px);
+
+        box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+
+        font-size: 42px;
+
+        margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+
+        font-size: 23px;
+
+        margin-bottom: 8px;
+    }
+
+    .service-card p {
+
+        color: var(--gray);
+
+        margin-bottom: 15px;
+    }
+
+    .service-card ul {
+
+        list-style: none;
+
+        color: #4b5563;
+    }
+
+    .service-card li {
+
+        margin: 6px 0;
+    }
+
+    .service-card li::before {
+
+        content: "✓";
+
+        color: var(--success);
+
+        font-weight: bold;
+
+        margin-right: 8px;
+    }
+
+
+    /* =====================================================
+       PORTFOLIO
+    ====================================================== */
+
+    .portfolio {
+
+        background: #f3f4f6;
+    }
+
+    .filter-buttons {
+
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-bottom: 35px;
+    }
+
+    .filter-btn {
+
+        border:
+            1px solid var(--border);
+
+        background: white;
+
+        padding: 9px 17px;
+
+        border-radius: 30px;
+
+        cursor: pointer;
+
+        transition: 0.25s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+
+        background: var(--primary);
+
+        color: white;
+
+        border-color:
+            var(--primary);
+    }
+
+    .portfolio-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 25px;
+    }
+
+    .portfolio-item {
+
+        position: relative;
+
+        min-height: 300px;
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                135deg,
+                #374151,
+                #111827
+            );
+
+        cursor: pointer;
+    }
+
+    .portfolio-art {
+
+        width: 100%;
+
+        height: 100%;
+
+        min-height: 300px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 100px;
+
+        background:
+            radial-gradient(
+                circle,
+                #ff9f43,
+                #4b5563 45%,
+                #111827
+            );
+
+        transition: 0.4s;
+    }
+
+    .portfolio-item:nth-child(2)
+    .portfolio-art {
+
+        background:
+            radial-gradient(
+                circle,
+                #60a5fa,
+                #374151 45%,
+                #111827
+            );
+    }
+
+    .portfolio-item:nth-child(3)
+    .portfolio-art {
+
+        background:
+            radial-gradient(
+                circle,
+                #a78bfa,
+                #374151 45%,
+                #111827
+            );
+    }
+
+    .portfolio-item:nth-child(4)
+    .portfolio-art {
+
+        background:
+            radial-gradient(
+                circle,
+                #34d399,
+                #374151 45%,
+                #111827
+            );
+    }
+
+    .portfolio-item:nth-child(5)
+    .portfolio-art {
+
+        background:
+            radial-gradient(
+                circle,
+                #fb7185,
+                #374151 45%,
+                #111827
+            );
+    }
+
+    .portfolio-item:nth-child(6)
+    .portfolio-art {
+
+        background:
+            radial-gradient(
+                circle,
+                #facc15,
+                #374151 45%,
+                #111827
+            );
+    }
+
+    .portfolio-overlay {
+
+        position: absolute;
+
+        inset: auto 0 0 0;
+
+        padding: 25px;
+
+        color: white;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0,0,0,.85)
+            );
+
+        transform:
+            translateY(10px);
+
+        transition: 0.3s;
+    }
+
+    .portfolio-item:hover
+    .portfolio-art {
+
+        transform:
+            scale(1.07);
+    }
+
+    .portfolio-item:hover
+    .portfolio-overlay {
+
+        transform:
+            translateY(0);
+    }
+
+
+    /* =====================================================
+       PRICING
+    ====================================================== */
+
+    .pricing {
+
+        background: white;
+    }
+
+    .pricing-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 25px;
+
+        align-items: stretch;
+    }
+
+    .price-card {
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 18px;
+
+        padding: 35px;
+
+        background: white;
+
+        position: relative;
+    }
+
+    .price-card.featured {
+
+        border:
+            2px solid var(--primary);
+
+        box-shadow:
+            0 20px 45px rgba(255,90,31,.15);
+
+        transform:
+            translateY(-8px);
+    }
+
+    .popular {
+
+        position: absolute;
+
+        top: -15px;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        background:
+            var(--primary);
+
+        color: white;
+
+        padding: 5px 16px;
+
+        border-radius: 30px;
+
+        font-size: 13px;
+    }
+
+    .price-card h3 {
+
+        font-size: 25px;
+
+        margin-bottom: 10px;
+    }
+
+    .price {
+
+        font-size: 40px;
+
+        font-weight: 700;
+
+        color: var(--primary);
+
+        margin-bottom: 20px;
+    }
+
+    .price small {
+
+        font-size: 15px;
+
+        color: var(--gray);
+
+        font-weight: normal;
+    }
+
+    .price-list {
+
+        list-style: none;
+
+        margin-bottom: 25px;
+    }
+
+    .price-list li {
+
+        padding: 8px 0;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .price-list li::before {
+
+        content: "✓";
+
+        color: var(--success);
+
+        margin-right: 8px;
+
+        font-weight: bold;
+    }
+
+
+    /* =====================================================
+       WORK PROCESS
+    ====================================================== */
+
+    .process {
+
+        background: #111827;
+
+        color: white;
+    }
+
+    .process .section-heading h2 {
+
+        color: white;
+    }
+
+    .process .section-heading p {
+
+        color: #9ca3af;
+    }
+
+    .process-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 20px;
+    }
+
+    .process-card {
+
+        padding: 28px;
+
+        border:
+            1px solid #374151;
+
+        border-radius: 15px;
+
+        background:
+            rgba(255,255,255,.04);
+    }
+
+    .process-number {
+
+        width: 45px;
+
+        height: 45px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: var(--primary);
+
+        font-weight: bold;
+
+        margin-bottom: 18px;
+    }
+
+    .process-card h3 {
+
+        margin-bottom: 8px;
+    }
+
+    .process-card p {
+
+        color: #9ca3af;
+
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       CALCULATOR
+    ====================================================== */
+
+    .calculator {
+
+        background: #f3f4f6;
+    }
+
+    .calculator-box {
+
+        max-width: 900px;
+
+        margin: auto;
+
+        padding: 40px;
+
+        background: white;
+
+        border-radius: 20px;
+
+        box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+    .form-group {
+
+        margin-bottom: 15px;
+    }
+
+    .form-group.full {
+
+        grid-column:
+            1 / -1;
+    }
+
+    .form-group label {
+
+        display: block;
+
+        margin-bottom: 7px;
+
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+
+        width: 100%;
+
+        padding: 12px 14px;
+
+        border:
+            1px solid #d1d5db;
+
+        border-radius: 8px;
+
+        outline: none;
+
+        background: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+
+        border-color:
+            var(--primary);
+
+        box-shadow:
+            0 0 0 3px
+            rgba(255,90,31,.1);
+    }
+
+    .estimate-result {
+
+        margin-top: 25px;
+
+        padding: 25px;
+
+        background: #fff7ed;
+
+        border:
+            1px solid #fed7aa;
+
+        border-radius: 12px;
+
+        display: none;
+    }
+
+    .estimate-result h3 {
+
+        color: var(--primary);
+
+        margin-bottom: 10px;
+    }
+
+    .estimate-price {
+
+        font-size: 35px;
+
+        font-weight: 700;
+
+        color: var(--primary);
+    }
+
+    .estimate-note {
+
+        color: var(--gray);
+
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       ORDER FORM
+    ====================================================== */
+
+    .order {
+
+        background: white;
+    }
+
+    .order-layout {
+
+        display: grid;
+
+        grid-template-columns:
+            0.8fr 1.2fr;
+
+        gap: 50px;
+
+        align-items: start;
+    }
+
+    .order-info h3 {
+
+        font-size: 30px;
+
+        margin-bottom: 15px;
+    }
+
+    .order-info p {
+
+        color: var(--gray);
+
+        margin-bottom: 20px;
+    }
+
+    .contact-box {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+
+        padding: 15px;
+
+        margin-bottom: 12px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 10px;
+    }
+
+    .contact-icon {
+
+        font-size: 28px;
+    }
+
+    .order-form {
+
+        padding: 35px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 18px;
+
+        box-shadow: var(--shadow);
+    }
+
+    .order-form textarea {
+
+        min-height: 140px;
+
+        resize: vertical;
+    }
+
+    .success-message {
+
+        display: none;
+
+        padding: 15px;
+
+        margin-top: 15px;
+
+        border-radius: 8px;
+
+        background: #dcfce7;
+
+        color: #166534;
+    }
+
+
+    /* =====================================================
+       REVIEWS
+    ====================================================== */
+
+    .reviews {
+
+        background: #f3f4f6;
+    }
+
+    .review-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 25px;
+    }
+
+    .review-card {
+
+        padding: 30px;
+
+        background: white;
+
+        border-radius: 15px;
+
+        box-shadow:
+            0 5px 20px
+            rgba(0,0,0,.05);
+    }
+
+    .stars {
+
+        color: #f59e0b;
+
+        font-size: 20px;
+
+        margin-bottom: 10px;
+    }
+
+    .review-card p {
+
+        color: var(--gray);
+
+        margin-bottom: 20px;
+    }
+
+    .review-author {
+
+        font-weight: 600;
+    }
+
+
+    /* =====================================================
+       FAQ
+    ====================================================== */
+
+    .faq {
+
+        background: white;
+    }
+
+    .faq-container {
+
+        max-width: 850px;
+
+        margin: auto;
+    }
+
+    .faq-item {
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 10px;
+
+        margin-bottom: 12px;
+
+        overflow: hidden;
+    }
+
+    .faq-question {
+
+        width: 100%;
+
+        border: none;
+
+        background: white;
+
+        padding: 18px 20px;
+
+        text-align: left;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        cursor: pointer;
+
+        font-weight: 600;
+
+        font-size: 16px;
+    }
+
+    .faq-answer {
+
+        display: none;
+
+        padding: 0 20px 20px;
+
+        color: var(--gray);
+    }
+
+
+    /* =====================================================
+       CTA
+    ====================================================== */
+
+    .cta {
+
+        padding: 70px 0;
+
+        color: white;
+
+        background:
+
+            linear-gradient(
+                135deg,
+                #ff5a1f,
+                #c2410c
+            );
+
+        text-align: center;
+    }
+
+    .cta h2 {
+
+        font-size:
+            clamp(30px, 5vw, 48px);
+
+        margin-bottom: 10px;
+    }
+
+    .cta p {
+
+        max-width: 650px;
+
+        margin: 0 auto 25px;
+
+        color: #ffedd5;
+    }
+
+    .cta .btn {
+
+        background: white;
+
+        color: var(--primary);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+
+        background: #030712;
+
+        color: #9ca3af;
+
+        padding: 60px 0 20px;
+    }
+
+    .footer-grid {
+
+        display: grid;
+
+        grid-template-columns:
+            2fr 1fr 1fr 1fr;
+
+        gap: 40px;
+    }
+
+    footer h3 {
+
+        color: white;
+
+        margin-bottom: 15px;
+    }
+
+    footer ul {
+
+        list-style: none;
+    }
+
+    footer li {
+
+        margin-bottom: 8px;
+    }
+
+    footer a:hover {
+
+        color: white;
+    }
+
+    .copyright {
+
+        border-top:
+            1px solid #1f2937;
+
+        margin-top: 40px;
+
+        padding-top: 20px;
+
+        text-align: center;
+
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       MODAL
+    ====================================================== */
+
+    .modal {
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 99999;
+
+        display: none;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        background:
+            rgba(0,0,0,.85);
+    }
+
+    .modal-content {
+
+        width: min(700px, 95%);
+
+        background: white;
+
+        border-radius: 15px;
+
+        padding: 30px;
+
+        position: relative;
+    }
+
+    .modal-close {
+
+        position: absolute;
+
+        right: 15px;
+
+        top: 15px;
+
+        width: 40px;
+
+        height: 40px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background: #111827;
+
+        color: white;
+
+        font-size: 22px;
+
+        cursor: pointer;
+    }
+
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    .back-top {
+
+        position: fixed;
+
+        right: 20px;
+
+        bottom: 20px;
+
+        width: 50px;
+
+        height: 50px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background: var(--primary);
+
+        color: white;
+
+        font-size: 20px;
+
+        cursor: pointer;
+
+        display: none;
+
+        z-index: 4000;
+    }
+
+
+    /* =====================================================
+       DARK MODE
+    ====================================================== */
+
+    body.dark {
+
+        background: #030712;
+
+        color: #e5e7eb;
+    }
+
+    body.dark .services,
+    body.dark .pricing,
+    body.dark .order,
+    body.dark .faq {
+
+        background: #111827;
+    }
+
+    body.dark .portfolio,
+    body.dark .calculator,
+    body.dark .reviews {
+
+        background: #030712;
+    }
+
+    body.dark .section-heading h2 {
+
+        color: white;
+    }
+
+    body.dark .service-card,
+    body.dark .price-card,
+    body.dark .calculator-box,
+    body.dark .order-form,
+    body.dark .review-card {
+
+        background: #1f2937;
+
+        border-color: #374151;
+    }
+
+    body.dark .service-card ul {
+
+        color: #d1d5db;
+    }
+
+    body.dark .stat {
+
+        background: #1f2937;
+
+        border-color: #374151;
+    }
+
+    body.dark .faq-item,
+    body.dark .faq-question {
+
+        background: #1f2937;
+
+        color: white;
+
+        border-color: #374151;
+    }
+
+    body.dark .form-group input,
+    body.dark .form-group select,
+    body.dark .form-group textarea {
+
+        background: #111827;
+
+        color: white;
+
+        border-color: #4b5563;
+    }
+
+    body.dark .estimate-result {
+
+        background: #431407;
+
+        border-color: #9a3412;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 1000px) {
+
+        .hero-grid {
+
+            grid-template-columns: 1fr;
+        }
+
+        .hero-preview {
+
+            max-width: 600px;
+
+            width: 100%;
+
+            margin: auto;
+        }
+
+        .service-grid,
+        .portfolio-grid,
+        .pricing-grid,
+        .review-grid {
+
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+        .process-grid {
+
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+        .footer-grid {
+
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+        .order-layout {
+
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    @media (max-width: 750px) {
+
+        .nav-menu {
+
+            display: none;
+
+            position: absolute;
+
+            top: 72px;
+
+            left: 0;
+
+            width: 100%;
+
+            background: #111827;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            padding: 20px 5%;
+
+            gap: 15px;
+        }
+
+        .nav-menu.active {
+
+            display: flex;
+        }
+
+        .menu-btn {
+
+            display: block;
+        }
+
+        .stats-grid {
+
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+        .stat {
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .service-grid,
+        .portfolio-grid,
+        .pricing-grid,
+        .review-grid,
+        .process-grid,
+        .form-grid {
+
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full {
+
+            grid-column: auto;
+        }
+
+        .price-card.featured {
+
+            transform: none;
+        }
+
+        section {
+
+            padding: 70px 0;
+        }
+
+        .hero {
+
+            min-height: auto;
+        }
+
+        .hero-grid {
+
+            padding: 70px 0;
+        }
+    }
+
+
+    @media (max-width: 480px) {
+
+        .stats-grid {
+
+            grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+
+            font-size: 42px;
+        }
+
+        .hero-buttons .btn {
+
+            width: 100%;
+        }
+
+        .calculator-box,
+        .order-form {
+
+            padding: 22px;
+        }
+
+        .footer-grid {
+
+            grid-template-columns: 1fr;
+        }
+    }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="#home"
+           class="logo">
+
+            Paint<span>3D</span> Studio
+
+        </a>
+
+
+        <ul class="nav-menu"
+            id="navMenu">
+
+            <li>
+                <a href="#home">หน้าแรก</a>
+            </li>
+
+            <li>
+                <a href="#services">บริการ</a>
+            </li>
+
+            <li>
+                <a href="#portfolio">ผลงาน</a>
+            </li>
+
+            <li>
+                <a href="#pricing">ราคา</a>
+            </li>
+
+            <li>
+                <a href="#calculator">ประเมินราคา</a>
+            </li>
+
+            <li>
+                <a href="#contact">ติดต่อ</a>
+            </li>
+
+        </ul>
+
+
+        <div class="header-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                onclick="toggleDarkMode()">
+
+                🌙
+
+            </button>
+
+
+            <button
+                class="menu-btn"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section
+    class="hero"
+    id="home">
+
+    <div class="container hero-grid">
+
+
+        <div>
+
+            <span class="hero-badge">
+
+                🎨 รับงาน Paint 3D / Custom Model
+
+            </span>
+
+
+            <h1>
+
+                เปลี่ยนโมเดลของคุณ
+                <span>ให้มีชีวิต</span>
+
+            </h1>
+
+
+            <p>
+
+                รับเพ้นท์โมเดล 3D แบบ Custom
+                ทั้ง Figure, Character, Diorama,
+                หุ่นยนต์ และงานโมเดลสะสม
+                พร้อมออกแบบสีตาม Reference
+                และรายละเอียดตามความต้องการของลูกค้า
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#calculator"
+                    class="btn btn-primary">
+
+                    💰 ประเมินราคางาน
+
+                </a>
+
+
+                <a
+                    href="#portfolio"
+                    class="btn btn-outline">
+
+                    🖼️ ดูผลงาน
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-preview">
+
+            <div class="preview-model">
+
+                🎨
+
+            </div>
+
+
+            <div class="preview-tag">
+
+                ✨ Custom Paint 3D
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+====================================================== -->
+
+<div class="stats">
+
+    <div class="container stats-grid">
+
+
+        <div class="stat">
+
+            <strong>100+</strong>
+
+            <span>ผลงาน</span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>50+</strong>
+
+            <span>ลูกค้า</span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>3+</strong>
+
+            <span>ปีประสบการณ์</span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>100%</strong>
+
+            <span>ตั้งใจในทุกงาน</span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SERVICES
+====================================================== -->
+
+<section
+    class="services"
+    id="services">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                OUR SERVICES
+            </div>
+
+            <h2>
+                บริการของเรา
+            </h2>
+
+            <p>
+                รับงานเพ้นท์และตกแต่งโมเดลหลายรูปแบบ
+                ตั้งแต่งานง่ายไปจนถึงงาน Custom
+                ที่มีรายละเอียดสูง
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Paint 3D
+                </h3>
+
+                <p>
+                    เพ้นท์โมเดลตามแบบและ Reference
+                    ที่ลูกค้าต้องการ
+                </p>
+
+                <ul>
+
+                    <li>
+                        ลงสีพื้น
+                    </li>
+
+                    <li>
+                        ไล่เฉดสี
+                    </li>
+
+                    <li>
+                        Highlight / Shadow
+                    </li>
+
+                    <li>
+                        เคลือบผิว
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    Figure & Character
+                </h3>
+
+                <p>
+                    รับเพ้นท์ Figure และตัวละคร
+                    สำหรับสะสมหรือจัดแสดง
+                </p>
+
+                <ul>
+
+                    <li>
+                        Anime Figure
+                    </li>
+
+                    <li>
+                        Game Character
+                    </li>
+
+                    <li>
+                        Original Character
+                    </li>
+
+                    <li>
+                        Custom Color
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏞️
+                </div>
+
+                <h3>
+                    Diorama
+                </h3>
+
+                <p>
+                    ออกแบบและลงสีฉากจำลอง
+                    พร้อมเพิ่มรายละเอียดให้สมจริง
+                </p>
+
+                <ul>
+
+                    <li>
+                        ฉากเมือง
+                    </li>
+
+                    <li>
+                        ธรรมชาติ
+                    </li>
+
+                    <li>
+                        พื้นผิว
+                    </li>
+
+                    <li>
+                        Weathering
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🦾
+                </div>
+
+                <h3>
+                    Mecha / Robot
+                </h3>
+
+                <p>
+                    รับเพ้นท์โมเดลหุ่นยนต์
+                    และโมเดลแนว Sci-Fi
+                </p>
+
+                <ul>
+
+                    <li>
+                        Panel Line
+                    </li>
+
+                    <li>
+                        Metallic
+                    </li>
+
+                    <li>
+                        Weathering
+                    </li>
+
+                    <li>
+                        Custom Color
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Custom Paint
+                </h3>
+
+                <p>
+                    ลูกค้าสามารถส่ง Reference
+                    เพื่อให้เราทำสีตามแบบ
+                </p>
+
+                <ul>
+
+                    <li>
+                        เปลี่ยนสี
+                    </li>
+
+                    <li>
+                        เพิ่มรายละเอียด
+                    </li>
+
+                    <li>
+                        ทำเอฟเฟกต์
+                    </li>
+
+                    <li>
+                        Custom Design
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    Repair & Repaint
+                </h3>
+
+                <p>
+                    แก้ไขโมเดลที่สีเสียหาย
+                    หรือต้องการเพ้นท์ใหม่
+                </p>
+
+                <ul>
+
+                    <li>
+                        ลอกสี
+                    </li>
+
+                    <li>
+                        ซ่อมจุดเสียหาย
+                    </li>
+
+                    <li>
+                        ลงสีใหม่
+                    </li>
+
+                    <li>
+                        เคลือบป้องกัน
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PORTFOLIO
+====================================================== -->
+
+<section
+    class="portfolio"
+    id="portfolio">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                PORTFOLIO
+            </div>
+
+            <h2>
+                ผลงานของเรา
+            </h2>
+
+            <p>
+                ตัวอย่างหมวดหมู่ผลงาน
+                สามารถเปลี่ยนเป็นรูปภาพจริงของคุณได้
+            </p>
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button
+                class="filter-btn active"
+                onclick="filterPortfolio('all', this)">
+
+                ทั้งหมด
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterPortfolio('figure', this)">
+
+                Figure
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterPortfolio('robot', this)">
+
+                Robot
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterPortfolio('diorama', this)">
+
+                Diorama
+
+            </button>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+
+            <div
+                class="portfolio-item"
+                data-category="figure"
+                onclick="openPortfolio('Figure Custom Paint')">
+
+                <div class="portfolio-art">
+                    🧙
+                </div>
+
+                <div class="portfolio-overlay">
+
+                    <h3>
+                        Figure Custom Paint
+                    </h3>
+
+                    <p>
+                        งานเพ้นท์ตัวละคร
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="portfolio-item"
+                data-category="robot"
+                onclick="openPortfolio('Mecha Custom')">
+
+                <div class="portfolio-art">
+                    🤖
+                </div>
+
+                <div class="portfolio-overlay">
+
+                    <h3>
+                        Mecha Custom
+                    </h3>
+
+                    <p>
+                        งานหุ่นยนต์ Custom Color
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="portfolio-item"
+                data-category="figure"
+                onclick="openPortfolio('Anime Character')">
+
+                <div class="portfolio-art">
+                    👾
+                </div>
+
+                <div class="portfolio-overlay">
+
+                    <h3>
+                        Anime Character
+                    </h3>
+
+                    <p>
+                        งาน Character
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="portfolio-item"
+                data-category="diorama"
+                onclick="openPortfolio('Fantasy Diorama')">
+
+                <div class="portfolio-art">
+                    🏰
+                </div>
+
+                <div class="portfolio-overlay">
+
+                    <h3>
+                        Fantasy Diorama
+                    </h3>
+
+                    <p>
+                        ฉากจำลองแฟนตาซี
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="portfolio-item"
+                data-category="figure"
+                onclick="openPortfolio('Custom Figure')">
+
+                <div class="portfolio-art">
+                    🦸
+                </div>
+
+                <div class="portfolio-overlay">
+
+                    <h3>
+                        Custom Figure
+                    </h3>
+
+                    <p>
+                        งาน Figure Custom
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="portfolio-item"
+                data-category="robot"
+                onclick="openPortfolio('Weathering Robot')">
+
+                <div class="portfolio-art">
+                    🚀
+                </div>
+
+                <div class="portfolio-overlay">
+
+                    <h3>
+                        Weathering Robot
+                    </h3>
+
+                    <p>
+                        งาน Weathering
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRICING
+====================================================== -->
+
+<section
+    class="pricing"
+    id="pricing">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                PRICE
+            </div>
+
+            <h2>
+                ราคาเริ่มต้น
+            </h2>
+
+            <p>
+                ราคาเป็นเพียงการประเมินเบื้องต้น
+                ราคาจริงขึ้นอยู่กับรายละเอียดของงาน
+            </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+
+            <div class="price-card">
+
+                <h3>
+                    Basic
+                </h3>
+
+                <div class="price">
+
+                    ฿500
+
+                    <small>
+                        / เริ่มต้น
+                    </small>
+
+                </div>
+
+
+                <ul class="price-list">
+
+                    <li>
+                        โมเดลขนาดเล็ก
+                    </li>
+
+                    <li>
+                        สีพื้น
+                    </li>
+
+                    <li>
+                        รายละเอียดไม่ซับซ้อน
+                    </li>
+
+                    <li>
+                        เคลือบผิวพื้นฐาน
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline">
+
+                    สอบถามงาน
+
+                </a>
+
+            </div>
+
+
+
+            <div class="price-card featured">
+
+                <div class="popular">
+                    ⭐ แนะนำ
+                </div>
+
+                <h3>
+                    Standard
+                </h3>
+
+                <div class="price">
+
+                    ฿1,500
+
+                    <small>
+                        / เริ่มต้น
+                    </small>
+
+                </div>
+
+
+                <ul class="price-list">
+
+                    <li>
+                        Figure / Character
+                    </li>
+
+                    <li>
+                        ลงสีหลายระดับ
+                    </li>
+
+                    <li>
+                        Highlight / Shadow
+                    </li>
+
+                    <li>
+                        รายละเอียดปานกลาง
+                    </li>
+
+                    <li>
+                        เคลือบผิว
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-primary">
+
+                    จ้างงาน
+
+                </a>
+
+            </div>
+
+
+
+            <div class="price-card">
+
+                <h3>
+                    Premium
+                </h3>
+
+                <div class="price">
+
+                    ฿3,500+
+
+                    <small>
+                        / งาน
+                    </small>
+
+                </div>
+
+
+                <ul class="price-list">
+
+                    <li>
+                        งาน Custom รายละเอียดสูง
+                    </li>
+
+                    <li>
+                        Diorama
+                    </li>
+
+                    <li>
+                        Weathering
+                    </li>
+
+                    <li>
+                        Special Effect
+                    </li>
+
+                    <li>
+                        ออกแบบสีเฉพาะ
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline">
+
+                    สอบถามราคา
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESS
+====================================================== -->
+
+<section
+    class="process">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                HOW IT WORKS
+            </div>
+
+            <h2>
+                ขั้นตอนการสั่งงาน
+            </h2>
+
+            <p>
+                กระบวนการทำงานที่ชัดเจน
+                ตั้งแต่เริ่มต้นจนส่งมอบงาน
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    ส่งรายละเอียด
+                </h3>
+
+                <p>
+                    ส่งรูปโมเดล ขนาด
+                    และ Reference ที่ต้องการ
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    ประเมินราคา
+                </h3>
+
+                <p>
+                    ประเมินความยาก
+                    จำนวนสี และระยะเวลาทำงาน
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    เริ่มทำงาน
+                </h3>
+
+                <p>
+                    เริ่มเตรียมพื้นผิว
+                    ลงสี และเก็บรายละเอียด
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    ตรวจสอบและส่งงาน
+                </h3>
+
+                <p>
+                    ตรวจสอบผลงานขั้นสุดท้าย
+                    แล้วเตรียมส่งมอบให้ลูกค้า
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CALCULATOR
+====================================================== -->
+
+<section
+    class="calculator"
+    id="calculator">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                PRICE ESTIMATOR
+            </div>
+
+            <h2>
+                ประเมินราคางานเบื้องต้น
+            </h2>
+
+            <p>
+                กรอกข้อมูลเพื่อคำนวณราคาโดยประมาณ
+            </p>
+
+        </div>
+
+
+        <div class="calculator-box">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        ประเภทงาน
+                    </label>
+
+                    <select id="workType">
+
+                        <option value="500">
+                            Basic / งานเล็ก
+                        </option>
+
+                        <option value="1200">
+                            Figure
+                        </option>
+
+                        <option value="1500">
+                            Character
+                        </option>
+
+                        <option value="1800">
+                            Robot / Mecha
+                        </option>
+
+                        <option value="2500">
+                            Diorama
+                        </option>
+
+                        <option value="3000">
+                            Custom Premium
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ระดับรายละเอียด
+                    </label>
+
+                    <select id="detailLevel">
+
+                        <option value="1">
+                            น้อย
+                        </option>
+
+                        <option value="1.3">
+                            ปานกลาง
+                        </option>
+
+                        <option value="1.7">
+                            สูง
+                        </option>
+
+                        <option value="2.2">
+                            สูงมาก
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ขนาดโมเดล
+                    </label>
+
+                    <select id="modelSize">
+
+                        <option value="1">
+                            ต่ำกว่า 10 cm
+                        </option>
+
+                        <option value="1.2">
+                            10–20 cm
+                        </option>
+
+                        <option value="1.5">
+                            20–30 cm
+                        </option>
+
+                        <option value="2">
+                            มากกว่า 30 cm
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        จำนวนตัว
+                    </label>
+
+                    <input
+                        type="number"
+                        id="modelAmount"
+                        min="1"
+                        value="1">
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        รายละเอียดเพิ่มเติม
+                    </label>
+
+                    <textarea
+                        id="estimateDescription"
+                        placeholder="เช่น ต้องการสีแบบ Metallic, Weathering หรือมี Reference"></textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                onclick="calculatePrice()">
+
+                🧮 คำนวณราคา
+
+            </button>
+
+
+            <div
+                class="estimate-result"
+                id="estimateResult">
+
+                <h3>
+                    ราคาประเมินเบื้องต้น
+                </h3>
+
+                <div
+                    class="estimate-price"
+                    id="estimatePrice">
+
+                    ฿0
+
+                </div>
+
+                <p class="estimate-note">
+
+                    * ราคานี้เป็นการประเมินเบื้องต้น
+                    ราคาจริงอาจเปลี่ยนแปลงตามสภาพโมเดล
+                    รายละเอียด และระยะเวลาการทำงาน
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ORDER
+====================================================== -->
+
+<section
+    class="order"
+    id="contact">
+
+    <div class="container">
+
+
+        <div class="order-layout">
+
+
+            <div class="order-info">
+
+                <div class="section-heading"
+                     style="text-align:left;margin-bottom:25px;">
+
+                    <div class="label">
+                        CONTACT
+                    </div>
+
+                    <h2>
+                        สนใจจ้างงาน?
+                    </h2>
+
+                </div>
+
+
+                <p>
+
+                    ส่งรายละเอียดงานมาให้เราได้เลย
+                    ไม่ว่าจะเป็นรูปโมเดล Reference
+                    หรือไอเดียที่ต้องการ
+                    เราจะช่วยประเมินความเป็นไปได้
+                    และราคาให้
+
+                </p>
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            LINE
+                        </strong>
+
+                        <p>
+                            @yourline
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        📘
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Facebook
+                        </strong>
+
+                        <p>
+                            Paint 3D Studio
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        📷
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Instagram
+                        </strong>
+
+                        <p>
+                            @paint3dstudio
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        📧
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <p>
+                            example@email.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <form
+                class="order-form"
+                onsubmit="submitOrder(event)">
+
+
+                <h3>
+                    📝 แบบฟอร์มแจ้งรายละเอียดงาน
+                </h3>
+
+
+                <br>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ชื่อลูกค้า
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            required
+                            placeholder="ชื่อของคุณ">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ช่องทางติดต่อ
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerContact"
+                            required
+                            placeholder="LINE / Facebook / โทรศัพท์">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            ประเภทงาน
+                        </label>
+
+                        <select
+                            id="orderType">
+
+                            <option>
+                                Figure
+                            </option>
+
+                            <option>
+                                Character
+                            </option>
+
+                            <option>
+                                Robot / Mecha
+                            </option>
+
+                            <option>
+                                Diorama
+                            </option>
+
+                            <option>
+                                Custom
+                            </option>
+
+                            <option>
+                                Repair / Repaint
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            งบประมาณโดยประมาณ
+                        </label>
+
+                        <input
+                            type="number"
+                            id="budget"
+                            placeholder="เช่น 1500">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            รายละเอียดงาน
+                        </label>
+
+                        <textarea
+                            id="orderDetail"
+                            required
+                            placeholder="อธิบายรายละเอียดงานที่ต้องการ"></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    📩 ส่งรายละเอียดงาน
+
+                </button>
+
+
+                <div
+                    class="success-message"
+                    id="successMessage">
+
+                    ✅ ส่งข้อมูลเรียบร้อยแล้ว!
+                    ทางร้านจะติดต่อกลับเพื่อพูดคุยรายละเอียด
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REVIEWS
+====================================================== -->
+
+<section
+    class="reviews">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                REVIEWS
+            </div>
+
+            <h2>
+                รีวิวจากลูกค้า
+            </h2>
+
+            <p>
+                ตัวอย่างรีวิว สามารถเปลี่ยนเป็นรีวิวจริงได้
+            </p>
+
+        </div>
+
+
+        <div class="review-grid">
+
+
+            <div class="review-card">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    งานละเอียดมาก สีตรงตาม Reference
+                    ที่ส่งไปเลยครับ แพ็กงานดีมาก
+
+                </p>
+
+                <div class="review-author">
+                    — คุณ A
+                </div>
+
+            </div>
+
+
+            <div class="review-card">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    คุยรายละเอียดง่าย
+                    มีการส่งรูปอัปเดตระหว่างทำ
+                    ประทับใจมากครับ
+
+                </p>
+
+                <div class="review-author">
+                    — คุณ B
+                </div>
+
+            </div>
+
+
+            <div class="review-card">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    โมเดลออกมาสวยกว่าที่คิด
+                    โดยเฉพาะรายละเอียดและการไล่สี
+
+                </p>
+
+                <div class="review-author">
+                    — คุณ C
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FAQ
+====================================================== -->
+
+<section
+    class="faq">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="label">
+                FAQ
+            </div>
+
+            <h2>
+                คำถามที่พบบ่อย
+            </h2>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    รับงานโมเดลที่ลูกค้าส่งมาเองหรือไม่?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    รับครับ สามารถส่งโมเดลมาให้เพ้นท์ได้
+                    โดยต้องแจ้งรายละเอียดและสภาพโมเดล
+                    ก่อนประเมินราคา
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    ต้องส่ง Reference หรือไม่?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    แนะนำให้ส่ง Reference
+                    เพื่อให้เข้าใจสี สไตล์
+                    และรายละเอียดที่ลูกค้าต้องการมากที่สุด
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    ใช้เวลาทำกี่วัน?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    ระยะเวลาขึ้นอยู่กับขนาด
+                    จำนวนชิ้นส่วน และรายละเอียด
+                    ของงาน โดยจะแจ้งกำหนดเวลา
+                    ก่อนเริ่มงาน
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    ราคาที่หน้าเว็บคือราคาจริงหรือไม่?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    ราคาที่แสดงเป็นราคาเริ่มต้น
+                    และเครื่องคำนวณเป็นเพียงราคาประเมิน
+                    ราคาจริงต้องประเมินจากโมเดลและรายละเอียดงาน
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    สามารถสั่ง Custom สีเองได้ไหม?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    ได้ สามารถส่งภาพ Reference
+                    หรืออธิบายโทนสีที่ต้องการได้
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section
+    class="cta">
+
+    <div class="container">
+
+        <h2>
+            มีโมเดลที่อยากให้เราเพ้นท์ไหม?
+        </h2>
+
+        <p>
+
+            ส่งรูปและรายละเอียดมาให้เรา
+            แล้วมาสร้างผลงาน Custom
+            ที่เป็นเอกลักษณ์ของคุณกัน
+
+        </p>
+
+
+        <a
+            href="#contact"
+            class="btn">
+
+            🎨 ติดต่อจ้างงาน
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    Paint 3D Studio
+                </h3>
+
+                <p>
+
+                    รับงาน Paint 3D
+                    Figure, Character,
+                    Robot, Diorama
+                    และ Custom Model
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    เมนู
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">
+                            หน้าแรก
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            บริการ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#portfolio">
+                            ผลงาน
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#pricing">
+                            ราคา
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    บริการ
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Paint 3D
+                    </li>
+
+                    <li>
+                        Figure
+                    </li>
+
+                    <li>
+                        Character
+                    </li>
+
+                    <li>
+                        Diorama
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    ติดต่อ
+                </h3>
+
+                <ul>
+
+                    <li>
+                        LINE: @yourline
+                    </li>
+
+                    <li>
+                        Facebook
+                    </li>
+
+                    <li>
+                        Instagram
+                    </li>
+
+                    <li>
+                        Email
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Paint 3D Studio
+            — All Rights Reserved.
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     PORTFOLIO MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="portfolioModal"
+    onclick="closePortfolio(event)">
+
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closePortfolio()">
+
+            ×
+
+        </button>
+
+
+        <h2
+            id="portfolioTitle">
+
+            Portfolio
+
+        </h2>
+
+
+        <br>
+
+
+        <p>
+
+            สามารถนำส่วนนี้ไปใส่รูปภาพจริง
+            รายละเอียดงาน สีที่ใช้
+            ระยะเวลาทำงาน และราคาของผลงานได้
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BACK TO TOP
+====================================================== -->
+
+<button
+    class="back-top"
+    id="backTop"
+    onclick="window.scrollTo({top:0, behavior:'smooth'})">
+
+    ↑
+
+</button>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMenu() {
+
+    const menu =
+        document.getElementById("navMenu");
+
+    menu.classList.toggle("active");
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark");
+
+    const button =
+        document.getElementById("themeBtn");
+
+
+    if (
+        document.body.classList.contains("dark")
+    ) {
+
+        button.textContent = "☀️";
+
+        localStorage.setItem(
+            "paint3d-theme",
+            "dark"
+        );
+
+    } else {
+
+        button.textContent = "🌙";
+
+        localStorage.setItem(
+            "paint3d-theme",
+            "light"
+        );
+
+    }
+
+}
+
+
+/* โหลด Theme เดิม */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const savedTheme =
+            localStorage.getItem(
+                "paint3d-theme"
+            );
+
+
+        if (
+            savedTheme === "dark"
+        ) {
+
+            document.body.classList.add("dark");
+
+            document.getElementById(
+                "themeBtn"
+            ).textContent = "☀️";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PORTFOLIO FILTER
+===================================================== */
+
+function filterPortfolio(
+    category,
+    button
+) {
+
+    const items =
+        document.querySelectorAll(
+            ".portfolio-item"
+        );
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+
+    buttons.forEach(
+        btn =>
+            btn.classList.remove("active")
+    );
+
+
+    button.classList.add("active");
+
+
+    items.forEach(
+        item => {
+
+            const itemCategory =
+                item.dataset.category;
+
+
+            if (
+                category === "all" ||
+                itemCategory === category
+            ) {
+
+                item.style.display = "block";
+
+            } else {
+
+                item.style.display = "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PORTFOLIO MODAL
+===================================================== */
+
+function openPortfolio(title) {
+
+    const modal =
+        document.getElementById(
+            "portfolioModal"
+        );
+
+
+    document.getElementById(
+        "portfolioTitle"
+    ).textContent = title;
+
+
+    modal.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closePortfolio(event) {
+
+    const modal =
+        document.getElementById(
+            "portfolioModal"
+        );
+
+
+    if (
+        !event ||
+        event.target === modal
+    ) {
+
+        modal.style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+}
+
+
+/* =====================================================
+   PRICE CALCULATOR
+===================================================== */
+
+function calculatePrice() {
+
+    const workType =
+        Number(
+            document.getElementById(
+                "workType"
+            ).value
+        );
+
+
+    const detail =
+        Number(
+            document.getElementById(
+                "detailLevel"
+            ).value
+        );
+
+
+    const size =
+        Number(
+            document.getElementById(
+                "modelSize"
+            ).value
+        );
+
+
+    const amount =
+        Math.max(
+            1,
+            Number(
+                document.getElementById(
+                    "modelAmount"
+                ).value
+            )
+        );
+
+
+    let price =
+        workType *
+        detail *
+        size *
+        amount;
+
+
+    /* ปัดราคาให้เป็นหลักสิบ */
+
+    price =
+        Math.ceil(
+            price / 10
+        ) * 10;
+
+
+    document.getElementById(
+        "estimatePrice"
+    ).textContent =
+        "฿" +
+        price.toLocaleString("th-TH");
+
+
+    document.getElementById(
+        "estimateResult"
+    ).style.display = "block";
+
+}
+
+
+/* =====================================================
+   ORDER FORM
+===================================================== */
+
+function submitOrder(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value;
+
+
+    const contact =
+        document.getElementById(
+            "customerContact"
+        ).value;
+
+
+    const type =
+        document.getElementById(
+            "orderType"
+        ).value;
+
+
+    const detail =
+        document.getElementById(
+            "orderDetail"
+        ).value;
+
+
+    if (
+        name === "" ||
+        contact === "" ||
+        detail === ""
+    ) {
+
+        alert(
+            "กรุณากรอกข้อมูลให้ครบถ้วน"
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "successMessage"
+    ).style.display = "block";
+
+
+    /*
+       ตรงนี้สามารถต่อกับ Backend
+       หรือระบบส่งข้อความภายหลังได้
+    */
+
+
+    console.log({
+        name: name,
+        contact: contact,
+        type: type,
+        detail: detail
+    });
+
+
+    event.target.reset();
+
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+function toggleFAQ(button) {
+
+    const answer =
+        button.nextElementSibling;
+
+
+    const icon =
+        button.querySelector("span");
+
+
+    if (
+        answer.style.display === "block"
+    ) {
+
+        answer.style.display = "none";
+
+        icon.textContent = "+";
+
+    } else {
+
+        answer.style.display = "block";
+
+        icon.textContent = "−";
+
+    }
+
+}
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        const button =
+            document.getElementById(
+                "backTop"
+            );
+
+
+        if (
+            window.scrollY > 500
+        ) {
+
+            button.style.display =
+                "block";
+
+        } else {
+
+            button.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MENU AFTER CLICK
+===================================================== */
+
+document.querySelectorAll(
+    ".nav-menu a"
+).forEach(
+    link => {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                document
+                    .getElementById("navMenu")
+                    .classList.remove("active");
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            document.getElementById(
+                "portfolioModal"
+            ).style.display = "none";
+
+            document.body.style.overflow =
+                "auto";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
+```
